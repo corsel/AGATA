@@ -1,0 +1,7 @@
+#ifndef GLOBAL_PARAMS_H_INCLUDED
+#define GLOBAL_PARAMS_H_INCLUDED
+
+extern const int AG_WINDOW_WIDTH;
+extern const int AG_WINDOW_HEIGHT;
+
+#endif // GLOBAL_PARAMS_H_INCLUDED
