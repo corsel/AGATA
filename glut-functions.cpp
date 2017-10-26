@@ -16,5 +16,5 @@ void AGGlutFuncs::initialize(int* argc, char* argv[])
 	glClearColor(0.0F, 0.0F, 0.0F, 1.0F);
 
 	glutDisplayFunc(display);
-	glutIdleFunc(display);
+	//glutIdleFunc(display);
 }

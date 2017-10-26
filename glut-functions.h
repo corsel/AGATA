@@ -3,6 +3,7 @@
 
 #include "GL\freeglut.h"
 #include "global-params.h"
+#include "gp-definitions.h"
 
 namespace AGGlutFuncs
 {

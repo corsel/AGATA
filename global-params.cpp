@@ -2,3 +2,4 @@
 
 const int AG_WINDOW_WIDTH = 800;
 const int AG_WINDOW_HEIGHT = 600;
+std::vector<AGGPIface*> gpVector;
