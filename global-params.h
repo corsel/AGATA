@@ -1,6 +1,10 @@
 #ifndef GLOBAL_PARAMS_H_INCLUDED
 #define GLOBAL_PARAMS_H_INCLUDED
 
+/*
+This file includes global constants used for freeglut rendering. 
+*/
+
 #include <vector>
 #include "graphical-primitive.h"
 

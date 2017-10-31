@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-	AGGlutFuncs::initialize(&argc, argv);
-	glutMainLoop();
-	return 0;
+  AGGlutFuncs::initialize(&argc, argv);
+  glutMainLoop();
+  return 0;
 }
