@@ -1,5 +1,5 @@
-#ifndef DF_PARSER_H_INCLUDED
-#define DF_PARSER_H_INCLUDED
+#ifndef _DF_PARSER_H_INCLUDED
+#define _DF_PARSER_H_INCLUDED
 
 /*
 This file includes parser class for definition files.
@@ -8,26 +8,36 @@ Classes will be derived from DFParserIface base class to extract graphical primi
 
 #include <vector>
 #include <fstream>
+#include <stdlib.h>
 #include "gp-iface.h"
-#include "gp-implementn.h"
-#include "gp-types.h"
-#include "global-params.h"
+#include "gp-impn.h"
+#include "ag-type.h"
+#include "ag-global-param.h"
 
 class DFParserIface // abstract
 {
 private:
 
 public:
-  virtual std::vector<AGGPIface*> generateGPVector(const char* argFileName) = 0;
+  virtual void processDF(
+    const char* argFileName, 
+    std::vector<AGGPIface*>* argOutGPIfaceVector = NULL,
+    std::map<AGType::AGParam_Uint8, AGType::ColorRGB>* argOutColorMap = NULL) = 0;
 };
 
-// Dummy parser class. This will be removed after actual parser classes are implemented.
+// TODO: Dummy parser class will be removed after actual xml/binary ARINC661 parsers are implemented. 
 class DFParserDummy : public DFParserIface
 {
 private:
+  std::vector<AGGPIface*> generateGPVector(void);
+  std::map<AGType::AGParam_Uint8, AGType::ColorRGB> generateColorMap(void);
+
 public:
   DFParserDummy(void);
-  virtual std::vector<AGGPIface*> generateGPVector(const char* argFileName);
+  virtual void processDF(
+    const char* argFileName,
+    std::vector<AGGPIface*>* argOutGPIfaceVector = NULL, 
+    std::map<AGType::AGParam_Uint8, AGType::ColorRGB>* argOutColorMap = NULL);
 };
 
-#endif // DF_PARSER_H_INCLUDED
+#endif // _DF_PARSER_H_INCLUDED

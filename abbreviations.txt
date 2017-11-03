@@ -1,9 +1,10 @@
 Common abbreviations used in the source code of this project are as follows (capitalization may vary): 
 
-A661: ARINC661
-AG: AGATA
-DEF: Definition
-DF: Definition File
-GP: Graphical Primitive
+A661:  ARINC661
+AG:    AGATA
+DEF:   Definition
+DF:    Definition File
+GP:    Graphical Primitive
 IFACE: Interface 
-WDG: Widget
+IMPN:  Implementation
+WDG:   Widget
