@@ -1,17 +1,15 @@
-#ifndef _GP_DEF_H_INCLUDED
-#define _GP_DEF_H_INCLUDED
+#ifndef GP_DEFINITIONS_H_INCLUDED
+#define GP_DEFINITIONS_H_INCLUDED
 
 /*
 This file declares definition parameters for widgets.
 */
 
-#include "ag-type.h"
-
-using namespace AGType;
+#include "gp-types.h"
 
 struct AGGP_ArcCircleDef
 {
-  AGParam_WdgCommon Common;
+  AGParam_WidgetCommon Common;
   AGParam_Int32 PosX;
   AGParam_Int32 PosY;  
   AGParam_Uint8 ColorIndex;
@@ -49,4 +47,4 @@ struct AGGP_LineDef
   AGParam_Int32 PosYEnd;
 };
 
-#endif // _GP_DEF_H_INCLUDED
+#endif // GP_DEFINITIONS_H_INCLUDED

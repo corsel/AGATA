@@ -1,6 +1,6 @@
-#include "gp-impn.h"
+#include "gp-implementn.h"
 
-// TODO: Find alternative to immediate mode rendering. VBO? GLSL?
+// TODO: How are color indices predefined according to ARINC661? A661_COLOR_INDEX should be mapped to glColor4f rgba parameters inside each GP class' display function.
 // TODO: PosX and Posy values are defined as int32 in GP definitions. These shall be converted to float according to screen size, etc. 
 
 // AGGP_Line class
@@ -12,12 +12,9 @@ void AGGP_Line::display() // virtual
   glPushMatrix();
   glLoadIdentity();
   
-  ColorRGB color = AGGlobalParam::colorMap[def.ColorIndex];
-  glColor4f(color.Red, color.Green, color.Blue, 1.0F);
-
   glBegin(GL_LINE);
-  glVertex2i(def.PosXStart, def.PosYStart);
-  glVertex2i(def.PosXEnd, def.PosYEnd);
+  glVertex2f(def.PosXStart, def.PosYStart);
+  glVertex2f(def.PosXEnd, def.PosYEnd);
   glEnd();
   
   glPopMatrix();
@@ -37,17 +34,13 @@ void AGGP_ArcCircle::display() // virtual
   numSlices = (numSlices < CIRCLE_SLICES_MIN) ? CIRCLE_SLICES_MIN : numSlices;
   
   // TODO: Assess performance of trigonometric ops (lookup table better option?).
-  glTranslatef(static_cast<GLfloat>(def.PosX), static_cast<GLfloat>(def.PosY), 0.0F);
-  ColorRGB color = AGGlobalParam::colorMap[def.ColorIndex];
-  glColor4f(color.Red, color.Green, color.Blue, 1.0F);
-
   glBegin(GL_TRIANGLE_FAN);
-  glVertex2i(0, 0);
+  glVertex2f(def.PosX, def.PosY);
   for (unsigned int i = 0; i < (numSlices + 1); i++)
   {
     float xVal = def.Radius * cos(2.0F * M_PI / numSlices * i);
     float yVal = def.Radius * sin(2.0F * M_PI / numSlices * i);
-    glVertex2i(xVal, yVal);
+    glVertex2f(xVal, yVal);
   }
   glEnd();
 
