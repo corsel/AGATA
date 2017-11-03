@@ -1,5 +1,5 @@
 #include "GL\freeglut.h"
-#include "ag-glut-func.h"
+#include "glut-funcs.h"
 
 int main(int argc, char* argv[])
 {

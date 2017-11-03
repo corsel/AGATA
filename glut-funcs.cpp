@@ -1,4 +1,4 @@
-#include "ag-glut-func.h"
+#include "glut-funcs.h"
 
 void AGGlutFunc::display()
 {

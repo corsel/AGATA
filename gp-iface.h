@@ -7,15 +7,16 @@ AGGPInterface is the abstract class interfaced to glut functions for rendering g
 */
 
 #include "GL\freeglut.h"
-#include "ag-type.h"
-#include "a661-const.h"
+#include "types.h"
+#include "a661-consts.h"
 
 class AGGPIface // abstract
 {
-private:
+protected:
   A661Const::A661Constant16Bit wdgType;
 
 public:
+  AGGPIface(A661Const::A661Constant16Bit argWdgType);
   virtual void display(void) = 0;
 };
 

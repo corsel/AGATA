@@ -11,8 +11,8 @@ Classes will be derived from DFParserIface base class to extract graphical primi
 #include <stdlib.h>
 #include "gp-iface.h"
 #include "gp-impn.h"
-#include "ag-type.h"
-#include "ag-global-param.h"
+#include "types.h"
+#include "global-params.h"
 
 class DFParserIface // abstract
 {

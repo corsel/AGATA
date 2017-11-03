@@ -9,12 +9,14 @@ All graphical primitives derive from AGGPInterface base class.
 #define _USE_MATH_DEFINES
 
 #include <math.h>
-#include <GL/freeglut.h>
-#include "ag-global-param.h"
+#include <GL\freeglut.h>
+#include "a661-consts.h"
+#include "global-params.h"
 #include "gp-iface.h"
 #include "gp-def.h"
+#include "utils.h"
 
-const unsigned int CIRCLE_SLICES_PER_RADIUS = 20;
+const float CIRCLE_SLICES_PER_RADIUS = 1.0F;
 const unsigned int CIRCLE_SLICES_MIN = 7;
 
 class AGGP_Line : public AGGPIface
@@ -23,7 +25,6 @@ private:
   AGGP_LineDef def;
 
 public:
-  AGGP_Line(void);
   AGGP_Line(AGGP_LineDef argDef);
   virtual void display(void);
 };
@@ -34,7 +35,6 @@ private:
   AGGP_ArcCircleDef def;
 
 public:
-  AGGP_ArcCircle(void);
   AGGP_ArcCircle(AGGP_ArcCircleDef argDef);
   virtual void display(void);
 };

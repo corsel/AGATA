@@ -1,5 +1,5 @@
-#ifndef _A661_CONST_H_INCLUDED
-#define _A661_CONST_H_INCLUDED
+#ifndef _A661_CONSTS_H_INCLUDED
+#define _A661_CONSTS_H_INCLUDED
 
 /*
 This file defines the constant hex values utilized in ARINC661 standard.
@@ -65,4 +65,4 @@ namespace A661Const
     A661_EVT_VALUE_CHANGE      = 0xE0C0
   };
 }
-#endif // _A661_CONST_H_INCLUDED
+#endif // _A661_CONSTS_H_INCLUDED

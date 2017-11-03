@@ -1,12 +1,12 @@
-#ifndef _AG_GLUT_FUNC_H_INCLUDED
-#define _AG_GLUT_FUNC_H_INCLUDED
+#ifndef _GLUT_FUNCS_H_INCLUDED
+#define _GLUT_FUNCS_H_INCLUDED
 
 /*
 This file includes functions for freeglut rendering functionality.
 */
 
 #include "GL\freeglut.h"
-#include "ag-global-param.h"
+#include "global-params.h"
 #include "df-parser.h"
 #include "gp-def.h"
 
@@ -18,4 +18,4 @@ namespace AGGlutFunc
   void iterateGPs(void);
 }
 
-#endif // _AG_GLUT_FUNCTIONS_H_INCLUDED
+#endif // _GLUT_FUNCS_H_INCLUDED

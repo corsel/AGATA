@@ -1,4 +1,4 @@
-#include "ag-global-param.h"
+#include "global-params.h"
 
 const int AGGlobalParam::AG_WINDOW_WIDTH = 800;
 const int AGGlobalParam::AG_WINDOW_HEIGHT = 600;

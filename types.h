@@ -1,5 +1,5 @@
-#ifndef _AG_TYPE_H_INCLUDED
-#define _AG_TYPE_H_INCLUDED
+#ifndef _TYPES_H_INCLUDED
+#define _TYPES_H_INCLUDED
 
 /*
 This file includes type definitions and data structs used inside ARINC661 commands and widget attributes. 
@@ -30,5 +30,5 @@ namespace AGType
   };
 }
 
-#endif // _AG_TYPE_H_INCLUDED
+#endif // _TYPES_H_INCLUDED
 

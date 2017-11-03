@@ -1,5 +1,5 @@
-#ifndef _AG_GLOBAL_PARAM_H_INCLUDED
-#define _AG_GLOBAL_PARAM_H_INCLUDED
+#ifndef _GLOBAL_PARAMS_H_INCLUDED
+#define _GLOBAL_PARAMS_H_INCLUDED
 
 /*
 This file includes global constants used for freeglut rendering. 
@@ -7,7 +7,7 @@ This file includes global constants used for freeglut rendering.
 
 #include <map>
 #include <vector>
-#include "ag-type.h"
+#include "types.h"
 #include "gp-iface.h"
 
 namespace AGGlobalParam
@@ -22,4 +22,4 @@ namespace AGGlobalParam
   // Mapping data between ARINC661 ColorIndex parameter and their respective RGB values
   extern std::map<AGType::AGParam_Uint8, AGType::ColorRGB> colorMap;
 }
-#endif // _AG_GLOBAL_PARAM_H_INCLUDED
+#endif // _GLOBAL_PARAMS_H_INCLUDED

@@ -5,7 +5,7 @@
 This file declares definition parameters for widgets.
 */
 
-#include "ag-type.h"
+#include "types.h"
 
 using namespace AGType;
 
