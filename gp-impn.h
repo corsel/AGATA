@@ -1,5 +1,5 @@
-#ifndef GP_IMPLEMENTN_H_INCLUDED
-#define GP_IMPLEMENTN_H_INCLUDED
+#ifndef _GP_IMPN_H_INCLUDED
+#define _GP_IMPN_H_INCLUDED
 
 /*
 This file defines graphical primitive classes.
@@ -10,8 +10,9 @@ All graphical primitives derive from AGGPInterface base class.
 
 #include <math.h>
 #include <GL/freeglut.h>
+#include "ag-global-param.h"
 #include "gp-iface.h"
-#include "gp-definitions.h"
+#include "gp-def.h"
 
 const unsigned int CIRCLE_SLICES_PER_RADIUS = 20;
 const unsigned int CIRCLE_SLICES_MIN = 7;
@@ -38,4 +39,4 @@ public:
   virtual void display(void);
 };
 
-#endif // GP_IMPLEMENTN_H_INCLUDED
+#endif // _GP_IMPN_H_INCLUDED
