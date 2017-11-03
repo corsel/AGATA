@@ -9,7 +9,7 @@ This file declares definition parameters for widgets.
 
 struct AGGP_ArcCircleDef
 {
-  AGParam_Common Common;
+  AGParam_WidgetCommon Common;
   AGParam_Int32 PosX;
   AGParam_Int32 PosY;  
   AGParam_Uint8 ColorIndex;
@@ -23,7 +23,7 @@ struct AGGP_ArcCircleDef
 
 struct AGGP_CrownDef
 {
-  AGParam_Common Common;
+  AGParam_WdgCommon Common;
   AGParam_Int32 PosX;
   AGParam_Int32 PosY;
   AGParam_Uint8 ColorIndex;
@@ -38,7 +38,7 @@ struct AGGP_CrownDef
 
 struct AGGP_LineDef
 {
-  AGParam_Common Common;
+  AGParam_WdgCommon Common;
   AGParam_Uint8 ColorIndex;
   AGParam_Bool HasHalo;
   AGParam_Int32 PosXStart;

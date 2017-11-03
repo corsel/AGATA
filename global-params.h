@@ -6,7 +6,7 @@ This file includes global constants used for freeglut rendering.
 */
 
 #include <vector>
-#include "graphical-primitive.h"
+#include "gp-iface.h"
 
 extern const int AG_WINDOW_WIDTH;
 extern const int AG_WINDOW_HEIGHT;

@@ -11,9 +11,9 @@ typedef unsigned char AGParam_Uint8;
 typedef unsigned short int AGParam_Uint16;
 typedef bool AGParam_Bool;
 
-struct AGParam_Common
+struct AGParam_WidgetCommon
 {
-  AGParam_Ident WidgetIdent;
+  AGParam_Ident WdgIdent;
   AGParam_Ident ParentIdent;
   AGParam_Bool IsVisible;
   AGParam_Uint16 StyleSet;

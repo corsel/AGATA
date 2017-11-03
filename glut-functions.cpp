@@ -4,6 +4,8 @@ void AGGlutFuncs::display()
 {
   glClear(GL_COLOR_BUFFER_BIT);
 
+  AGGlutFuncs::iterateGPs();
+
   glutSwapBuffers();
 }
 void AGGlutFuncs::initialize(int* argc, char* argv[])
