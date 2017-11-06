@@ -13,11 +13,18 @@ AGGPInterface is the abstract class interfaced to glut functions for rendering g
 class AGGPIface // abstract
 {
 protected:
-  A661Const::A661Constant16Bit wdgType;
+  AGType::AGParam_WdgCommon wdgCommonParam;
+  friend class AGGPIfaceComparator;
 
 public:
-  AGGPIface(A661Const::A661Constant16Bit argWdgType);
+  AGGPIface(AGType::AGParam_WdgCommon argCommonParam);
   virtual void display(void) = 0;
+};
+
+class AGGPIfaceComparator
+{
+public:
+  bool operator()(AGGPIface* arg0, AGGPIface* arg1);
 };
 
 #endif // _GP_IFACE_H_INCLUDED

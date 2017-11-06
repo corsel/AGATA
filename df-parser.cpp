@@ -1,42 +1,36 @@
 #include "df-parser.h"
 
-// DFParserDummy class
-std::vector<AGGPIface*> DFParserDummy::generateGPVector() // private
+// AGDFParserDummy class
+AGType::AGGPIfaceSet AGDFParserDummy::generateGPSet() // private
 {
-  std::vector<AGGPIface*> returnVec;
-
+  AGType::AGGPIfaceSet returnSet;
+  
+  AGType::AGParam_WdgCommon commonParam
+  {
+    A661Const::A661Constant16Bit::A661_GP_ARC_CIRCLE, // WdgType
+    0x0001,                                           // WdgIdent
+    0x0000,                                           // ParentIdent
+    true,                                             // IsVisible
+    0x0000,                                           // StyleSet
+    false                                             // IsAnonymous
+  };
   AGGP_ArcCircleDef circleDef =
   {
-    AGParam_WdgCommon
-    {
-      0x0001, // WdgIdent
-      0x0000, // ParentIdent
-      true,   // IsVisible
-      0x0000, // StyleSet
-      false   // IsAnonymous
-    },
     500,   // PosX
     200,   // PosY
     3,     // ColorIndex
     false, // HasHalo
-    false,  // IsFilled
+    false, // IsFilled
     0,     // FillIndex
     20,    // Radius
-    145,     // StartAngle
-    270     // EndAngle
+    145,   // StartAngle
+    270    // EndAngle
   };
-  returnVec.push_back(new AGGP_ArcCircle(circleDef));
+  returnSet.insert(new AGGP_ArcCircle(commonParam, circleDef));
 
+  commonParam.WdgIdent = 0x0002;
   circleDef =
   {
-    AGParam_WdgCommon
-    {
-      0x0002, // WdgIdent
-      0x0000, // ParentIdent
-      true,   // IsVisible
-      0x0000, // StyleSet
-      false   // IsAnonymous
-    },
     300,   // PosX
     300,   // PosY
     2,     // ColorIndex
@@ -44,21 +38,15 @@ std::vector<AGGPIface*> DFParserDummy::generateGPVector() // private
     true,  // IsFilled
     0,     // FillIndex
     70,    // Radius
-    45,     // StartAngle
-    120     // EndAngle
+    45,    // StartAngle
+    120    // EndAngle
   };
-  returnVec.push_back(new AGGP_ArcCircle(circleDef));
+  returnSet.insert(new AGGP_ArcCircle(commonParam, circleDef));
 
+  commonParam.WdgType = A661Const::A661Constant16Bit::A661_GP_LINE;
+  commonParam.WdgIdent = 0x0003;
   AGGP_LineDef lineDef = 
   {
-    AGParam_WdgCommon
-    {
-      0x0003, // WdgIdent
-      0x0000, // ParentIdent
-      true,   // IsVisible
-      0x0000, // StyleSet
-      false   // IsAnonymous
-    },
     4,     // ColorIndex
     false, // HasHalo
     200,   // PosXStart
@@ -66,11 +54,11 @@ std::vector<AGGPIface*> DFParserDummy::generateGPVector() // private
     400,   // PosXEnd
     500    // PosYEnd
   };
-  returnVec.push_back(new AGGP_Line(lineDef));
+  returnSet.insert(new AGGP_Line(commonParam, lineDef));
 
-  return std::move(returnVec);
+  return std::move(returnSet);
 }
-std::map<AGType::AGParam_Uint8, AGType::ColorRGB> DFParserDummy::generateColorMap() // private
+AGType::AGColorMap AGDFParserDummy::generateColorMap() // private
 {
   std::map<AGType::AGParam_Uint8, AGType::ColorRGB> returnMap {
     std::make_pair<AGType::AGParam_Uint8, AGType::ColorRGB>(0x01, { 1.0F, 0.0F, 0.0F }), // 0x01 : red
@@ -82,15 +70,15 @@ std::map<AGType::AGParam_Uint8, AGType::ColorRGB> DFParserDummy::generateColorMa
   return std::move(returnMap);
 }
 
-DFParserDummy::DFParserDummy() {}
-void DFParserDummy::processDF(
+AGDFParserDummy::AGDFParserDummy() {}
+void AGDFParserDummy::processDFMsg(
   const char* argFileName,
-  std::vector<AGGPIface*>* argOutGPIfaceVector /* = NULL */,
-  std::map<AGType::AGParam_Uint8, AGType::ColorRGB>* argOutColorMap /* = NULL */) // virtual
+  AGType::AGGPIfaceSet* argOutAGGPIfaceSet /* = NULL */,
+  AGType::AGColorMap* argOutColorMap /* = NULL */) // virtual
 {
-  if (argOutGPIfaceVector)
+  if (argOutAGGPIfaceSet)
   {
-    *argOutGPIfaceVector = generateGPVector();
+    *argOutAGGPIfaceSet = generateGPSet();
   }
   
   if (argOutColorMap)

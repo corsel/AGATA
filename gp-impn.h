@@ -16,7 +16,7 @@ All graphical primitives derive from AGGPInterface base class.
 #include "gp-def.h"
 #include "utils.h"
 
-const float CIRCLE_SLICES_PER_RADIUS = 1.0F;
+const float CIRCLE_SLICES_PER_RADIUS = 3.0F;
 const unsigned int CIRCLE_SLICES_MIN = 7;
 
 class AGGP_Line : public AGGPIface
@@ -25,7 +25,7 @@ private:
   AGGP_LineDef def;
 
 public:
-  AGGP_Line(AGGP_LineDef argDef);
+  AGGP_Line(AGType::AGParam_WdgCommon argCommonParams, AGGP_LineDef argDef);
   virtual void display(void);
 };
 
@@ -35,7 +35,7 @@ private:
   AGGP_ArcCircleDef def;
 
 public:
-  AGGP_ArcCircle(AGGP_ArcCircleDef argDef);
+  AGGP_ArcCircle(AGType::AGParam_WdgCommon argCommonParams, AGGP_ArcCircleDef argDef);
   virtual void display(void);
 };
 

@@ -11,7 +11,6 @@ using namespace AGType;
 
 struct AGGP_ArcCircleDef
 {
-  AGParam_WdgCommon Common;
   AGParam_Int32 PosX;
   AGParam_Int32 PosY;  
   AGParam_Uint8 ColorIndex;
@@ -25,7 +24,6 @@ struct AGGP_ArcCircleDef
 
 struct AGGP_CrownDef
 {
-  AGParam_WdgCommon Common;
   AGParam_Int32 PosX;
   AGParam_Int32 PosY;
   AGParam_Uint8 ColorIndex;
@@ -40,7 +38,6 @@ struct AGGP_CrownDef
 
 struct AGGP_LineDef
 {
-  AGParam_WdgCommon Common;
   AGParam_Uint8 ColorIndex;
   AGParam_Bool HasHalo;
   AGParam_Int32 PosXStart;

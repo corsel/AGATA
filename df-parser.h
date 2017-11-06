@@ -3,41 +3,47 @@
 
 /*
 This file includes parser class for definition files.
-Classes will be derived from DFParserIface base class to extract graphical primitives from xml of binary definition file. 
+Classes will be derived from AGDFParserIface base class to extract graphical primitives from xml of binary definition file. 
 */
 
-#include <vector>
 #include <fstream>
 #include <stdlib.h>
 #include "gp-iface.h"
 #include "gp-impn.h"
-#include "types.h"
 #include "global-params.h"
+#include "types.h"
 
-class DFParserIface // abstract
+// Classes derived from this abstract class will parse definition-time xml/binary ARINC661 files.
+class AGDFParserIface // abstract
 {
-private:
-
 public:
-  virtual void processDF(
+  virtual void processDFMsg(
     const char* argFileName, 
-    std::vector<AGGPIface*>* argOutGPIfaceVector = NULL,
-    std::map<AGType::AGParam_Uint8, AGType::ColorRGB>* argOutColorMap = NULL) = 0;
+    AGType::AGGPIfaceSet* argOutAGGPIfaceSet = NULL,
+    AGType::AGColorMap* argOutColorMap = NULL) = 0;
+};
+
+// Classes derived from this abstract class will parse definition-time xml/binary ARINC661 files.
+class AGRTParserIface // abstract
+{
+public:
+  // TODO: This method will be binded to a stream, socket, etc. instead of char array.
+  virtual void processRTMsg(const char* argFileName) = 0;
 };
 
 // TODO: Dummy parser class will be removed after actual xml/binary ARINC661 parsers are implemented. 
-class DFParserDummy : public DFParserIface
+class AGDFParserDummy : public AGDFParserIface
 {
 private:
-  std::vector<AGGPIface*> generateGPVector(void);
-  std::map<AGType::AGParam_Uint8, AGType::ColorRGB> generateColorMap(void);
+  AGType::AGGPIfaceSet generateGPSet(void);
+  AGType::AGColorMap generateColorMap(void);
 
 public:
-  DFParserDummy(void);
-  virtual void processDF(
+  AGDFParserDummy(void);
+  virtual void AGDFParserDummy::processDFMsg(
     const char* argFileName,
-    std::vector<AGGPIface*>* argOutGPIfaceVector = NULL, 
-    std::map<AGType::AGParam_Uint8, AGType::ColorRGB>* argOutColorMap = NULL);
+    AGType::AGGPIfaceSet* argOutAGGPIfaceSet = NULL,
+    AGType::AGColorMap* argOutColorMap = NULL);
 };
 
 #endif // _DF_PARSER_H_INCLUDED

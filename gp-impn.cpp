@@ -4,17 +4,17 @@
 // TODO: PosX and Posy values are defined as int32 in GP definitions. These shall be converted to float according to screen size, etc. 
 
 // AGGP_Line class
-AGGP_Line::AGGP_Line(AGGP_LineDef argDef)
-: AGGPIface(A661Const::A661Constant16Bit::A661_GP_LINE), def(argDef) {}
+AGGP_Line::AGGP_Line(AGType::AGParam_WdgCommon argCommonParams, AGGP_LineDef argDef)
+: AGGPIface(argCommonParams), def(argDef) {}
 void AGGP_Line::display() // virtual
 {
-  if (!def.Common.IsVisible)
+  if (!wdgCommonParam.IsVisible)
     return;
 
   glPushMatrix();
   glLoadIdentity();
   
-  ColorRGB color = AGGlobalParam::colorMap[def.ColorIndex];
+  ColorRGB color = AGGlobal::colorMap[def.ColorIndex];
   glColor4f(color.Red, color.Green, color.Blue, 1.0F);
 
   glBegin(GL_LINES);
@@ -26,11 +26,11 @@ void AGGP_Line::display() // virtual
 }
 
 // AGGP_ArcCircle class
-AGGP_ArcCircle::AGGP_ArcCircle(AGGP_ArcCircleDef argDef)
-: AGGPIface(A661Const::A661Constant16Bit::A661_GP_ARC_CIRCLE), def(argDef) {}
+AGGP_ArcCircle::AGGP_ArcCircle(AGType::AGParam_WdgCommon argCommonParams, AGGP_ArcCircleDef argDef)
+: AGGPIface(argCommonParams), def(argDef) {}
 void AGGP_ArcCircle::display() // virtual
 {
-  if (!def.Common.IsVisible)
+  if (!wdgCommonParam.IsVisible)
     return;
 
   glPushMatrix();
@@ -43,7 +43,7 @@ void AGGP_ArcCircle::display() // virtual
   
   // TODO: Assess performance of trigonometric ops (lookup table better option?). Possible drawback will be eliminated with use of VBO.
   glTranslatef(static_cast<GLfloat>(def.PosX), static_cast<GLfloat>(def.PosY), 0.0F);
-  ColorRGB color = AGGlobalParam::colorMap[def.ColorIndex];
+  ColorRGB color = AGGlobal::colorMap[def.ColorIndex];
   glColor4f(color.Red, color.Green, color.Blue, 1.0F);
 
   float xVal = 0.0F;

@@ -11,13 +11,13 @@ void AGGlutFunc::display()
 void AGGlutFunc::initGl(int* argc, char* argv[])
 {
   glutInit(argc, argv);
-  glutInitWindowSize(AGGlobalParam::AG_WINDOW_WIDTH, AGGlobalParam::AG_WINDOW_HEIGHT);
+  glutInitWindowSize(AGGlobal::AG_WINDOW_WIDTH, AGGlobal::AG_WINDOW_HEIGHT);
   glutCreateWindow("AGATA Sandbox");
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
   glClearColor(0.0F, 0.0F, 0.0F, 1.0F);
   
   glMatrixMode(GL_PROJECTION);
-  gluOrtho2D(0, AGGlobalParam::AG_WINDOW_WIDTH, 0, AGGlobalParam::AG_WINDOW_HEIGHT);
+  gluOrtho2D(0, AGGlobal::AG_WINDOW_WIDTH, 0, AGGlobal::AG_WINDOW_HEIGHT);
   glMatrixMode(GL_MODELVIEW);
 
   glutDisplayFunc(display);
@@ -25,15 +25,13 @@ void AGGlutFunc::initGl(int* argc, char* argv[])
 void AGGlutFunc::initLayer()
 {
   // TODO: Dummy implementation. A generalized parser object is to be used.
-  DFParserIface* dummyParser = new DFParserDummy();
-  dummyParser->processDF("No file input is needed for dummy parser.", &AGGlobalParam::gpVector, &AGGlobalParam::colorMap);
+  AGDFParserIface* dummyParser = new AGDFParserDummy();
+  dummyParser->processDFMsg("No file input is needed for dummy parser.", &AGGlobal::gpSet, &AGGlobal::colorMap);
 }
 void AGGlutFunc::iterateGPs()
 {
-  for (std::vector<AGGPIface*>::iterator iter = AGGlobalParam::gpVector.begin();
-    iter < AGGlobalParam::gpVector.end();
-    iter++)
+  for (AGGPIface* const& iter : AGGlobal::gpSet)
   {
-    (*iter)->display();
+    iter->display();
   }
 }
