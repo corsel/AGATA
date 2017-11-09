@@ -27,6 +27,9 @@ void AGGlutFunc::initLayer()
   // TODO: Dummy implementation. A generalized parser object is to be used.
   AGDFParserIface* dummyParser = new AGDFParserDummy();
   dummyParser->processDFMsg("No file input is needed for dummy parser.", &AGGlobal::gpSet, &AGGlobal::colorMap);
+
+  AGSocket* serverSocket = new AGSocket;
+
 }
 void AGGlutFunc::iterateGPs()
 {
