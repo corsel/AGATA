@@ -14,7 +14,7 @@ AGType::AGGPIfaceSet AGDFParserDummy::generateGPSet() // private
     0x0000,                                           // StyleSet
     false                                             // IsAnonymous
   };
-  AGGP_ArcCircleDef circleDef =
+  AGGPDef::ArcCircle circleDef =
   {
     500,   // PosX
     200,   // PosY
@@ -45,7 +45,7 @@ AGType::AGGPIfaceSet AGDFParserDummy::generateGPSet() // private
 
   commonParam.WdgType = A661Const::A661Constant16Bit::A661_GP_LINE;
   commonParam.WdgIdent = 0x0003;
-  AGGP_LineDef lineDef = 
+  AGGPDef::Line lineDef =
   {
     4,     // ColorIndex
     false, // HasHalo

@@ -20,6 +20,7 @@ void AGGlutFunc::initGl(int* argc, char* argv[])
   gluOrtho2D(0, AGGlobal::AG_WINDOW_WIDTH, 0, AGGlobal::AG_WINDOW_HEIGHT);
   glMatrixMode(GL_MODELVIEW);
 
+  glutKeyboardFunc(keyboard);
   glutDisplayFunc(display);
 }
 void AGGlutFunc::initLayer()
@@ -27,9 +28,6 @@ void AGGlutFunc::initLayer()
   // TODO: Dummy implementation. A generalized parser object is to be used.
   AGDFParserIface* dummyParser = new AGDFParserDummy();
   dummyParser->processDFMsg("No file input is needed for dummy parser.", &AGGlobal::gpSet, &AGGlobal::colorMap);
-
-  AGSocket* serverSocket = new AGSocket;
-
 }
 void AGGlutFunc::iterateGPs()
 {
@@ -37,4 +35,9 @@ void AGGlutFunc::iterateGPs()
   {
     iter->display();
   }
+}
+void AGGlutFunc::keyboard(unsigned char argKey, int argX, int argY)
+{
+  if (argKey == 'x')
+    AGGlobal::serverSocket.terminate();
 }

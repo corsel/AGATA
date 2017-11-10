@@ -4,7 +4,7 @@
 // TODO: PosX and Posy values are defined as int32 in GP definitions. These shall be converted to float according to screen size, etc. 
 
 // AGGP_Line class
-AGGP_Line::AGGP_Line(AGType::AGParam_WdgCommon argCommonParams, AGGP_LineDef argDef)
+AGGP_Line::AGGP_Line(AGType::AGParam_WdgCommon argCommonParams, AGGPDef::Line argDef)
 : AGGPIface(argCommonParams), def(argDef) {}
 void AGGP_Line::display() // virtual
 {
@@ -26,7 +26,7 @@ void AGGP_Line::display() // virtual
 }
 
 // AGGP_ArcCircle class
-AGGP_ArcCircle::AGGP_ArcCircle(AGType::AGParam_WdgCommon argCommonParams, AGGP_ArcCircleDef argDef)
+AGGP_ArcCircle::AGGP_ArcCircle(AGType::AGParam_WdgCommon argCommonParams, AGGPDef::ArcCircle argDef)
 : AGGPIface(argCommonParams), def(argDef) {}
 void AGGP_ArcCircle::display() // virtual
 {
@@ -37,8 +37,8 @@ void AGGP_ArcCircle::display() // virtual
   glLoadIdentity();
 
   // Number of triangle fan slices increase as the circle gets larger to prevent visible edges.
-  unsigned int fullCircleNumSlices = CIRCLE_SLICES_PER_RADIUS * def.Radius;
-  fullCircleNumSlices = (fullCircleNumSlices < CIRCLE_SLICES_MIN) ? CIRCLE_SLICES_MIN : fullCircleNumSlices;
+  unsigned int fullCircleNumSlices = AGLocalConst::CIRCLE_SLICES_PER_RADIUS * def.Radius;
+  fullCircleNumSlices = (fullCircleNumSlices < AGLocalConst::CIRCLE_SLICES_MIN) ? AGLocalConst::CIRCLE_SLICES_MIN : fullCircleNumSlices;
   unsigned int numSlices = std::floorf(fullCircleNumSlices * (def.EndAngle - def.StartAngle) / 360.0F);
   
   // TODO: Assess performance of trigonometric ops (lookup table better option?). Possible drawback will be eliminated with use of VBO.

@@ -17,6 +17,7 @@ namespace AGGlutFunc
   void initGl(int* argc, char* argv[]);
   void initLayer(void);
   void iterateGPs(void);
+  void keyboard(unsigned char argKey, int argX, int argY);
 }
 
 #endif // _GLUT_FUNCS_H_INCLUDED

@@ -7,8 +7,10 @@ This file includes global constants used for freeglut rendering.
 
 #include <map>
 #include <set>
-#include "types.h"
+#include "socket.h"
 #include "gp-iface.h"
+#include "types.h"
+
 
 namespace AGType
 {
@@ -27,6 +29,9 @@ namespace AGGlobal
 
   // Mapping data between ARINC661 ColorIndex parameter and their respective RGB values
   extern AGType::AGColorMap colorMap;
+
+  // This is here for debugging purposes.
+  extern AGSocket serverSocket;
 }
 
 #endif // _GLOBAL_PARAMS_H_INCLUDED

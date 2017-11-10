@@ -3,21 +3,26 @@
 
 #include <WinSock2.h>
 #include <ws2tcpip.h>
-#include <Windows.h>
+#include <thread>
 #include <iostream> // debug
 
-const int SERVER_PORT_NUM = 8081;
-const int NUM_CONNECTIONS = 10;
+namespace AGLocalConst
+{
+  const int SERVER_PORT_NUM = 8080;
+  const int NUM_CONNECTIONS = 10;
+}
 
 class AGSocket
 {
 private:
   SOCKET socket = INVALID_SOCKET;
+  std::thread recvThread;
   
-  static DWORD receive(void* argArg);
+  void receive(void);
 
 public:
   AGSocket(void);
+  void terminate(void);
 };
 
 #endif // _SOCKET_H_INCLUDED
