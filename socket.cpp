@@ -11,7 +11,11 @@ void AGSocket::receive() // private
     buffer[BUFFER_SIZE - 1] = '\0';
     std::cout << "Debug - AGSocket::accept: Data received: " << buffer << std::endl;
   }
-  std::cout << "Warning - AGSocket::receive: Error code: " << WSAGetLastError() << std::endl;
+
+  int errCode = WSAGetLastError();
+  // WSAEINTR error code is emitted when socket is terminated with key press. Suppress error message on a regular socket termination.
+  if (errCode != WSAEINTR)
+    std::cout << "Warning - AGSocket::receive: Error code: " << WSAGetLastError() << std::endl;
 }
 
 AGSocket::AGSocket()
@@ -41,8 +45,12 @@ AGSocket::AGSocket()
   std::thread recvThread(&AGSocket::receive, this);
   recvThread.detach();
 }
+AGSocket::~AGSocket()
+{
+  this->terminate();
+}
 void AGSocket::terminate()
 {
-  std::cout << "Debug - AGSocket::terminate: Method called." << std::endl;
-  closesocket(this->socket);
+  if (this->socket != INVALID_SOCKET)
+    closesocket(this->socket);
 }

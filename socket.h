@@ -22,6 +22,7 @@ private:
 
 public:
   AGSocket(void);
+  ~AGSocket(void);
   void terminate(void);
 };
 
