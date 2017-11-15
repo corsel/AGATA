@@ -10,10 +10,12 @@ AGGPInterface is the abstract class interfaced to glut functions for rendering g
 #include "types.h"
 #include "a661-consts.h"
 
+// TODO: Common parameters and comparator will be moved to AGWdgIface abstract class.
+
 class AGGPIface // abstract
 {
 protected:
-  AGType::AGParam_WdgCommon wdgCommonParam;
+  AGType::AGParam_WdgCommon wdgCommonParam; 
   friend class AGGPIfaceComparator;
 
 public:
