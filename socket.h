@@ -1,6 +1,10 @@
 #ifndef _SOCKET_H_INCLUDED
 #define _SOCKET_H_INCLUDED
 
+/*
+This file includes socket class to simulate connection between UA and CDS.
+*/
+
 #include <WinSock2.h>
 #include <ws2tcpip.h>
 #include <thread>

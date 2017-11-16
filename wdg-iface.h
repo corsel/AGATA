@@ -1,6 +1,10 @@
 #ifndef _WDG_IFACE_H_INCLUDED
 #define _WDG_IFACE_H_INCLUDED
 
+/*
+This file includes interface class for widgets.
+*/
+
 #include <vector>
 #include "types.h"
 

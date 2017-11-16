@@ -1,6 +1,10 @@
 #ifndef _WDG_IMPN_H_INCLUDED
 #define _WDG_IMPN_H_INCLUDED
 
+/*
+This file includes widget class implementations deriving from AGWdgIface.
+*/
+
 #include "gp-class.h"
 #include "wdg-iface.h"
 
