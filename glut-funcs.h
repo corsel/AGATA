@@ -16,7 +16,7 @@ namespace AGGlutFunc
   void display(void);
   void initGl(int* argc, char* argv[]);
   void initLayer(void);
-  void iterateGPs(void);
+  void iterateWdg(void);
   void keyboard(unsigned char argKey, int argX, int argY);
 }
 

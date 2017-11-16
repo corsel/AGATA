@@ -8,8 +8,7 @@ Classes will be derived from AGDFParserIface base class to extract graphical pri
 
 #include <fstream>
 #include <stdlib.h>
-#include "gp-iface.h"
-#include "gp-impn.h"
+#include "wdg-impn.h"
 #include "global-params.h"
 #include "types.h"
 
@@ -19,7 +18,7 @@ class AGDFParserIface // abstract
 public:
   virtual void processDFMsg(
     const char* argFileName, 
-    AGType::AGGPIfaceSet* argOutAGGPIfaceSet = NULL,
+    AGType::AGWdgIfaceSet* argOutAGGPIfaceSet = NULL,
     AGType::AGColorMap* argOutColorMap = NULL) = 0;
 };
 
@@ -35,14 +34,14 @@ public:
 class AGDFParserDummy : public AGDFParserIface
 {
 private:
-  AGType::AGGPIfaceSet generateGPSet(void);
+  AGType::AGWdgIfaceSet generateGPSet(void);
   AGType::AGColorMap generateColorMap(void);
 
 public:
   AGDFParserDummy(void);
   virtual void AGDFParserDummy::processDFMsg(
     const char* argFileName,
-    AGType::AGGPIfaceSet* argOutAGGPIfaceSet = NULL,
+    AGType::AGWdgIfaceSet* argOutAGWdgIfaceSet = NULL,
     AGType::AGColorMap* argOutColorMap = NULL);
 };
 

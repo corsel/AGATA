@@ -4,7 +4,7 @@ void AGGlutFunc::display()
 {
   glClear(GL_COLOR_BUFFER_BIT);
 
-  AGGlutFunc::iterateGPs();
+  AGGlutFunc::iterateWdg();
 
   glutSwapBuffers();
 }
@@ -27,13 +27,13 @@ void AGGlutFunc::initLayer()
 {
   // TODO: Dummy implementation. A generalized parser object is to be used.
   AGDFParserIface* dummyParser = new AGDFParserDummy();
-  dummyParser->processDFMsg("No file input is needed for dummy parser.", &AGGlobal::gpSet, &AGGlobal::colorMap);
+  dummyParser->processDFMsg("No file input is needed for dummy parser.", &AGGlobal::wdgRootSet, &AGGlobal::colorMap);
 }
-void AGGlutFunc::iterateGPs()
+void AGGlutFunc::iterateWdg()
 {
-  for (AGGPIface* const& iter : AGGlobal::gpSet)
+  for (AGWdgIface* const& iter : AGGlobal::wdgRootSet)
   {
-    iter->display();
+    iter->periodic();
   }
 }
 void AGGlutFunc::keyboard(unsigned char argKey, int argX, int argY)

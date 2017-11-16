@@ -1,10 +1,10 @@
 #include "df-parser.h"
 
 // AGDFParserDummy class
-AGType::AGGPIfaceSet AGDFParserDummy::generateGPSet() // private
+AGType::AGWdgIfaceSet AGDFParserDummy::generateGPSet() // private
 {
-  AGType::AGGPIfaceSet returnSet;
-  
+  AGType::AGWdgIfaceSet returnSet;
+
   AGType::AGParam_WdgCommon commonParam
   {
     A661Const::A661Constant16Bit::A661_GP_ARC_CIRCLE, // WdgType
@@ -26,7 +26,7 @@ AGType::AGGPIfaceSet AGDFParserDummy::generateGPSet() // private
     145,   // StartAngle
     270    // EndAngle
   };
-  returnSet.insert(new AGGP_ArcCircle(commonParam, circleDef));
+  returnSet.insert(new AGWdgClass::ArcCircle(commonParam, circleDef));
 
   commonParam.WdgIdent = 0x0002;
   circleDef =
@@ -41,7 +41,7 @@ AGType::AGGPIfaceSet AGDFParserDummy::generateGPSet() // private
     45,    // StartAngle
     120    // EndAngle
   };
-  returnSet.insert(new AGGP_ArcCircle(commonParam, circleDef));
+  returnSet.insert(new AGWdgClass::ArcCircle(commonParam, circleDef));
 
   commonParam.WdgType = A661Const::A661Constant16Bit::A661_GP_LINE;
   commonParam.WdgIdent = 0x0003;
@@ -54,7 +54,7 @@ AGType::AGGPIfaceSet AGDFParserDummy::generateGPSet() // private
     400,   // PosXEnd
     500    // PosYEnd
   };
-  returnSet.insert(new AGGP_Line(commonParam, lineDef));
+  returnSet.insert(new AGWdgClass::Line(commonParam, lineDef));
 
   return std::move(returnSet);
 }
@@ -73,12 +73,12 @@ AGType::AGColorMap AGDFParserDummy::generateColorMap() // private
 AGDFParserDummy::AGDFParserDummy() {}
 void AGDFParserDummy::processDFMsg(
   const char* argFileName,
-  AGType::AGGPIfaceSet* argOutAGGPIfaceSet /* = NULL */,
+  AGType::AGWdgIfaceSet* argOutAGWdgIfaceSet /* = NULL */,
   AGType::AGColorMap* argOutColorMap /* = NULL */) // virtual
 {
-  if (argOutAGGPIfaceSet)
+  if (argOutAGWdgIfaceSet)
   {
-    *argOutAGGPIfaceSet = generateGPSet();
+    *argOutAGWdgIfaceSet = generateGPSet();
   }
   
   if (argOutColorMap)

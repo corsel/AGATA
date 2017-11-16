@@ -8,13 +8,13 @@ This file includes global constants used for freeglut rendering.
 #include <map>
 #include <set>
 #include "socket.h"
-#include "gp-iface.h"
+#include "wdg-iface.h"
 #include "types.h"
 
 
 namespace AGType
 {
-  typedef std::set<AGGPIface*, AGGPIfaceComparator> AGGPIfaceSet;
+  typedef std::set<AGWdgIface*, AGWdgIfaceComparator> AGWdgIfaceSet;
   typedef std::map<AGType::AGParam_Uint8, AGType::ColorRGB> AGColorMap;
 }
 
@@ -25,7 +25,7 @@ namespace AGGlobal
   extern const int AG_WINDOW_HEIGHT;
 
   // Graphical primitives to be rendered by glut
-  extern AGType::AGGPIfaceSet gpSet;
+  extern AGType::AGWdgIfaceSet wdgRootSet;
 
   // Mapping data between ARINC661 ColorIndex parameter and their respective RGB values
   extern AGType::AGColorMap colorMap;

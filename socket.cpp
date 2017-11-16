@@ -52,5 +52,11 @@ AGSocket::~AGSocket()
 void AGSocket::terminate()
 {
   if (this->socket != INVALID_SOCKET)
+  {
+    std::cout << "Debug - AGSocket::terminate: Method called." << std::endl;
     closesocket(this->socket);
+    this->socket = INVALID_SOCKET;
+  }
+  else
+    std::cout << "Debug - AGSocket::terminate: Dead socket." << std::endl;
 }
