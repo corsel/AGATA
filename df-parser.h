@@ -22,14 +22,6 @@ public:
     AGType::AGColorMap* argOutColorMap = NULL) = 0;
 };
 
-// Classes derived from this abstract class will parse definition-time xml/binary ARINC661 files.
-class AGRTParserIface // abstract
-{
-public:
-  // TODO: This method will be binded to a stream, socket, etc. instead of char array.
-  virtual void processRTMsg(const char* argFileName) = 0;
-};
-
 // TODO: Dummy parser class will be removed after actual xml/binary ARINC661 parsers are implemented. 
 class AGDFParserDummy : public AGDFParserIface
 {
