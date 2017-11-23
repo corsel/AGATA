@@ -7,5 +7,5 @@ DF:    Definition File
 GP:    Graphical Primitive
 IFACE: Interface 
 IMPN:  Implementation
-RT:    Run-time
+RT:    Runtime
 WDG:   Widget

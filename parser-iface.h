@@ -1,0 +1,49 @@
+#ifndef _PARSER_IFACE_H_INCLUDED
+#define _PARSER_IFACE_H_INCLUDED
+
+/*
+This file includes parser class for definition files.
+Classes will be derived from AGDFParserIface base class to extract graphical primitives from xml of binary definition file. 
+*/
+
+#include <fstream>
+#include <stdlib.h>
+#include "wdg-impn.h"
+#include "global-params.h"
+#include "types.h"
+
+// Classes derived from this abstract class will parse definition-time xml/binary ARINC661 files.
+class AGDFParserIface // abstract
+{
+public:
+  virtual void processDFMsg(
+    const char* argFileName, 
+    AGType::AGWdgIfaceSet* argOutAGGPIfaceSet = NULL,
+    AGType::AGColorMap* argOutColorMap = NULL) = 0;
+};
+
+// Classes derived from this abstract class will parse runtime xml/binary ARINC661 files.
+class AGRTParserIface // abstract
+{
+public:
+  virtual void processRTMsg(const char* argFileName) = 0;
+};
+
+// TODO: Dummy parser class will be removed after actual xml/binary ARINC661 parsers are implemented. 
+class AGDFParserDummy : public AGDFParserIface
+{
+private:
+  AGType::AGWdgIfaceSet generateGPSet(void);
+  AGType::AGColorMap generateColorMap(void);
+
+public:
+  AGDFParserDummy(void);
+  virtual void AGDFParserDummy::processDFMsg(
+    const char* argFileName,
+    AGType::AGWdgIfaceSet* argOutAGWdgIfaceSet = NULL,
+    AGType::AGColorMap* argOutColorMap = NULL);
+};
+
+
+
+#endif // _PARSER_IFACE_H_INCLUDED

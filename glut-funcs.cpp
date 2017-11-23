@@ -15,6 +15,9 @@ void AGGlutFunc::initGl(int* argc, char* argv[])
   glutCreateWindow("AGATA Sandbox");
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
   glClearColor(0.0F, 0.0F, 0.0F, 1.0F);
+
+  //glEnable(GL_POLYGON_SMOOTH);
+  glHint(GL_POLYGON_SMOOTH_HINT | GL_LINE_SMOOTH_HINT, GL_NICEST);
   
   glMatrixMode(GL_PROJECTION);
   gluOrtho2D(0, AGGlobal::AG_WINDOW_WIDTH, 0, AGGlobal::AG_WINDOW_HEIGHT);
