@@ -21,10 +21,10 @@ public:
     AGType::AGColorMap* argOutColorMap = NULL);
 };
 
-class AGDFParser : public AGDFParserIface
+class AGDFParserFile : public AGDFParserIface
 {
 public:
-  AGDFParser(void);
+  AGDFParserFile(void);
   virtual void processDFMsg(
     const char* argFileName, 
     AGType::AGWdgIfaceSet* argOutAGWdgIfaceSet = NULL,

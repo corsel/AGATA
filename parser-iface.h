@@ -20,11 +20,4 @@ public:
     AGType::AGColorMap* argOutColorMap = NULL) = 0;
 };
 
-// Classes derived from this abstract class will parse runtime xml/binary ARINC661 files.
-class AGRTParserIface // abstract
-{
-public:
-  virtual void processRTMsg(const char* argFileName) = 0;
-};
-
 #endif // _PARSER_IFACE_H_INCLUDED
