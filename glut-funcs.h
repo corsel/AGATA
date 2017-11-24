@@ -6,7 +6,7 @@ This file includes functions for freeglut rendering functionality.
 */
 
 #include "GL\freeglut.h"
-#include "parser-iface.h"
+#include "parser-impn.h"
 #include "global-params.h"
 #include "gp-def.h"
 #include "socket.h"
